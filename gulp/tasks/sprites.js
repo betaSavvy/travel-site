@@ -1,6 +1,7 @@
 var gulp = require('gulp'),
     svgSprite = require('gulp-svg-sprite'),
-		rename = require('gulp-rename');
+		rename = require('gulp-rename'),
+		del = require('del');
 
 var config = {
 		mode: {
@@ -15,7 +16,11 @@ var config = {
 		}
 }
 
-gulp.task('createSprite', function() {
+gulp.task('beginClean', function() {
+	return del(['./app/assets/images/icons/sprites']);
+});
+
+gulp.task('createSprite', ['beginClean'], function() {
 	return gulp.src('./app/assets/images/icons/**/*.svg')
 	.pipe(svgSprite(config))
 	.pipe(gulp.dest('./app/assets/images/icons/sprites/'));
