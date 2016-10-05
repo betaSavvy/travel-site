@@ -41,7 +41,6 @@ class StickyHeader {
 				handler: function(direction) {
 					if(direction == "down") {
 						var MatchingHeaderLink = currentPageSection.getAttribute("data-matching-link");
-						console.log('Matching Link(DOWN) ' + MatchingHeaderLink);
 						that.headerLinks.removeClass('is-current-link');
 						$(MatchingHeaderLink).addClass("is-current-link");
 					}
@@ -54,7 +53,6 @@ class StickyHeader {
 				handler: function(direction) {
 					if(direction == "up") {
 						var MatchingHeaderLink = currentPageSection.getAttribute("data-matching-link");
-						console.log('Matching Link(UP) ' + MatchingHeaderLink);
 						that.headerLinks.removeClass('is-current-link');
 						$(MatchingHeaderLink).addClass("is-current-link");
 					}
