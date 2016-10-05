@@ -20,7 +20,7 @@ gulp.task('deleteDistFolder', ['icons'], function() {
 		return del('./docs');
 });
 
-gulp.task('copyGeneralFiles', ['deleteDistFolder'], function() {
+gulp.task('copyGeneralFiles', ['deleteDistFolder', 'styles', 'scripts'], function() {
 	var pathsToCopy = [
 	'./app/**/*',
 	'!./app/index.html',
@@ -48,7 +48,7 @@ gulp.task('copySvgPng', ['optimizeImages'], function() {
 	.pipe(gulp.dest('./docs/assets/images/icons/sprites'));
 });
 
-gulp.task('usemin', ['copySvgPng', 'styles', 'scripts'], function() {
+gulp.task('usemin', ['copySvgPng'], function() {
 	return gulp.src('./app/index.html')
 	.pipe(usemin({
 		css: [function() {return rev()}, function() {return cssnano()}],
