@@ -114,7 +114,7 @@
 			transform: translateX(0);
 
 			.site-header--dark & {
-				transform: scale(.6);
+				transform: scale(.595);
 			}
 		}
 	}
